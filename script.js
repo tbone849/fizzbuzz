@@ -23,11 +23,17 @@ function fizzbuzz(number){
 
 // get number from user
 function getNumber(){
-	var dataEntered = prompt("Please enter positive integer.");
+	var dataEntered = prompt("Please enter a number greater than 15.");
 	var isNumber = parseInt(dataEntered); // parse answer to integer
 
 	if(isNumber){ // is it a number?
-		fizzbuzz(isNumber); // yes, run fizzbuzz
+		if(isNumber < 15){
+			alert("I thought I said a number greater than 15...");
+			getNumber();
+		} else {
+			fizzbuzz(isNumber); // yes, run fizzbuzz
+		}
+		
 	} else {
 		alert("You did not enter a number. Try again."); // no, try again
 		getNumber(); // reprompt for a number
